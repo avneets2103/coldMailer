@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "a6ebfc25-30b7-4750-beb8-1864a7768772",
+		"name": "Cold mailing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24024642",
+		"_collection_link": "https://hacksmiths.postman.co/workspace/Team-Workspace~d04e95d4-d9aa-4928-8fc8-09c9d4655876/collection/24024642-a6ebfc25-30b7-4750-beb8-1864a7768772?action=share&source=collection_link&creator=24024642"
+	},
+	"item": [
+		{
+			"name": "mLSendMail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"recEmail\":\"avneet.bedi.ug21@nsut.ac.in\",\r\n    \"date\":\"13th June 2024\",\r\n    \"EName\":\"Avneet Singh Bedi\",\r\n    \"companyName\":\"Microsoft\",\r\n    \"companyAddress\":\"Hyderabad\",\r\n    \"specificPosition\": \"ML Engineer\",\r\n    \"foundWhere\":\"Linkedin\",\r\n    \"aboutCompany\":\"mst hai vai\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/users/MLSendMail",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"users",
+						"MLSendMail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "devSendMail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"recEmail\":\"avneet.bedi.ug21@nsut.ac.in\",\r\n    \"date\":\"13th June 2024\",\r\n    \"EName\":\"Avneet Singh Bedi\",\r\n    \"companyName\":\"Microsoft\",\r\n    \"companyAddress\":\"Hyderabad\",\r\n    \"specificPosition\": \"ML Engineer\",\r\n    \"foundWhere\":\"Linkedin\",\r\n    \"aboutCompany\":\"mst hai vai\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/users/DevSendMail",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"users",
+						"DevSendMail"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
