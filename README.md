@@ -39,6 +39,7 @@ USER_NAME = john
 
 #### Confused how to get google app password? 
 Go to your google account, go to security settings, make sure you have 2 factor authentication enabled, then search `app passwords` in the search box and generate a new app password, copy it and paste it in the .env file.
+
 `Video reference:` https://www.youtube.com/watch?v=MkLX85XU5rU
 
 ### 6. Open the constants.js file
@@ -48,7 +49,7 @@ Also replace my resume with your resume, and change the file path accordingly.
 You can also change the headlines according to your needs.
 
 ```js
-const cgpa = add gpa if you want to include cgpa in the cover letter;
+const cgpa = "add gpa if you want to include cgpa in the cover letter";
 
 export const MLCoverLetter = ( date, EName, companyName, companyAddress,specificPosition, foundWhere, aboutCompany) => `
 <!DOCTYPE html>
@@ -89,8 +90,8 @@ export const DevHeadline = "your mail headline"
 ### 7. Run the server using the terminal
 `npm run dev`
 
-### 8. Send the mail using the postman, these are post requests
-Something like this
+### 8. Send the mail using the postman, `post requests`
+Something like this (post -> raw -> json)
 ```json
 {
     "recEmail":"yenseng.nvidia@gmail.com",
