@@ -2,7 +2,7 @@ import { asyncHandler } from "./asyncHandler.js";
 import ApiError from "./ApiError.js";
 import ApiResponse from "./ApiResponse.js";
 import { sendingMail } from "./sendMail.js";
-import { DevCoverLetter, MLCoverLetter } from "./constants.js";
+import { DevCoverLetter, DevHeadline, DevResumePath, MLCoverLetter, MLHeadline, MLResumePath } from "./constants.js";
 
 const MLSendMail = asyncHandler(async (req, res) => {
   try {
@@ -19,7 +19,7 @@ const MLSendMail = asyncHandler(async (req, res) => {
 
     sendingMail(
       recEmail,
-      "ML applicant with work in XAI, GANs and DL",
+      MLHeadline,
       "",
       MLCoverLetter(
         date,
@@ -29,7 +29,8 @@ const MLSendMail = asyncHandler(async (req, res) => {
         specificPosition,
         foundWhere,
         aboutCompany
-      )
+      ),
+      MLResumePath
     );
     res.status(200).json(new ApiResponse(200,{mail: MLCoverLetter(
         date,
@@ -60,7 +61,7 @@ const DevSendMail = asyncHandler(async (req, res) => {
   
       sendingMail(
         recEmail,
-        "Full Stack Developer versed in Industry Leading Technologies",
+        DevHeadline,
         "",
         DevCoverLetter(
           date,
@@ -70,7 +71,8 @@ const DevSendMail = asyncHandler(async (req, res) => {
           specificPosition,
           foundWhere,
           aboutCompany
-        )
+        ),
+        DevResumePath
       );
       res.status(200).json(new ApiResponse(200,
         {mail: DevCoverLetter(

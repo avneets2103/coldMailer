@@ -105,3 +105,9 @@ export const DevCoverLetter = ( date, EName, companyName, companyAddress,specifi
 </html>
 
 `
+
+export const MLResumePath = "./resumes/My_Resume_v3_ML.pdf"
+export const DevResumePath = "./resumes/My_Resume_v3_Developer.pdf"
+
+export const MLHeadline = "ML applicant with work in XAI, GANs and DL";
+export const DevHeadline = "Full Stack Developer versed in Industry Leading Technologies";

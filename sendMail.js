@@ -3,31 +3,38 @@ import nodemailer from 'nodemailer';
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   host: 'smtp.gmail.com',
-  port: 587, // Ensure this is the correct port
-  secure: false, // Use TLS
+  port: 587,
+  secure: false,
   auth: {
-    user: `avneets2103@gmail.com`,
-    pass: `rwtgpbbneaxwoyze`
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASSWORD,
   },
 });
 
 const mailOptions = {
     from: {
-        name: "smartkart",
+        name: process.env.USER_NAME,
         address: process.env.MAIL_USER
     },
-    to: "avneet.bedi.ug21@nsut.ac.in",
-    subject: "Hello",
-    text: "Hello World!",
-    html: "<h1>Hello World!</h1>"
+    to: "",
+    subject: "",
+    text: "",
+    html: "",
+    attachments: [
+        {
+            filename: "resume.pdf",
+            path: "./resumes/My_Resume_v3_Developer.pdf", 
+        }
+    ]
 }
 
-const sendingMail = async (email, subject, text, html) => {
+const sendingMail = async (email, subject, text, html, resumePath) => {
     try {
-        mailOptions.html = html;    
         mailOptions.to = email;
         mailOptions.subject = subject;
         mailOptions.text = text;
+        mailOptions.html = html;    
+        mailOptions.attachments[0].path = resumePath;
         await transporter.sendMail(mailOptions);
         console.log("Message sent!");
     } catch (error) {
