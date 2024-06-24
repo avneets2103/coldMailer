@@ -22,9 +22,13 @@ const mailOptions = {
     html: "",
     attachments: [
         {
-            filename: "resume.pdf",
+            filename: "Developer_resume.pdf",
             path: "./resumes/My_Resume_v3_Developer.pdf", 
-        }
+        },
+        {
+            filename: "ML_resume.pdf",
+            path: "./resumes/My_Resume_v3_ML.pdf",
+        },
     ]
 }
 
@@ -34,7 +38,6 @@ const sendingMail = async (email, subject, text, html, resumePath) => {
         mailOptions.subject = subject;
         mailOptions.text = text;
         mailOptions.html = html;    
-        mailOptions.attachments[0].path = resumePath;
         await transporter.sendMail(mailOptions);
         console.log("Message sent!");
     } catch (error) {

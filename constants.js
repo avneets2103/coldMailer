@@ -74,7 +74,7 @@ export const DevCoverLetter = ( date, EName, companyName, companyAddress,specifi
         </p>
     </div>
     
-    <p>[Date]</p>
+    <p>${date}</p>
 
     <p>
         ${EName} <br>
@@ -106,8 +106,70 @@ export const DevCoverLetter = ( date, EName, companyName, companyAddress,specifi
 
 `
 
+export const queryLetter = (date, EName, companyName, companyAddress, aboutCompany) => `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Letter</title>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6;">
+    <div style="text-align: right;">
+        <h1 style="margin: 0;">Avneet Singh Bedi</h1>
+        <p style="margin: 0;">
+            <a href="mailto:avneets2103@gmail.com">avneets2103@gmail.com</a> |
+            <a href="https://www.linkedin.com/in/avneets2103">linkedin.com/in/avneets2103</a> |
+            <a href="https://github.com/avneets2103">github.com/avneets2103</a> |
+            <a href="https://parody-portfolio.vercel.app/">portolio/avneetSingh</a>
+        </p>
+    </div>
+    
+    <p>${date}</p>
+
+    <p>
+        ${EName} <br>
+        ${companyName} <br>
+        ${companyAddress} <br>
+    </p>
+
+    <p>Dear ${EName},</p>
+
+    <p>I am writing to inquire about potential opportunities at <strong>${companyName}</strong> for either an internship or a full-time position. With a strong academic background in Computer Science and Artificial Intelligence, coupled with hands-on experience in both machine learning and full-stack development, I am eager to bring my skills to your esteemed company.</p>
+
+    <p>I am currently pursuing a <strong>B.Tech in Computer Science and Artificial Intelligence</strong> at <strong>Netaji Subhas University of Technology</strong>, where I have maintained a CGPA of ${cgpa}. My education has provided me with a robust foundation in various aspects of software development and artificial intelligence.</p>
+
+    <p>I have substantial experience in full-stack development, highlighted by projects like:</p>
+    <ul>
+    <li><strong>Revamping LogiPulse at Mahindra Logistics using server-side rendering, Redux Toolkit, Redis, and TypeScript, significantly improving performance and reducing API call times from 520ms to 170ms.</strong></li>
+    <li><strong>Developing SmartKart, a full-stack application leveraging NextJS, NodeJS, Accerternity, ShadCN, and Cloudinary to revolutionize online shopping with features like a universal cart and price tracking.</strong></li>
+    </ul>
+    
+    <p>Along side my technical skills, I have also developed a keen interest in the field of data science and have worked on various projects that have allowed me to apply my knowledge in this domain. Some of my notable achievements include:</p>
+    <ul>
+        <li>Writing research papers in the field.</li>
+        <li><strong>Developing an IoT botnet detection system with ensemble deep learning networks, achieving an accuracy of 99.9024%.</strong></li>
+        <li><strong>Creating a real-time movement detection system using YOLO for a simulated 'Green Light Red Light' game, showcasing my skills in computer vision and real-time processing.</strong></li>
+    </ul>
+
+    <p>My active participation in hackathons and coding competitions, including securing first place in the Mahindra Logistics Catapult Techathon and being a finalist in multiple events, further illustrates my ability to thrive in competitive and dynamic environments.</p>
+
+    <p>I am particularly impressed by <strong>${companyName}</strong> because <strong>${aboutCompany}</strong> and would love the opportunity to contribute to your team. I am available for an internship starting October 2024 and for a full-time position from July 2025 onwards.</p>
+
+    <p>Thank you for considering my query. I would be delighted to discuss how my background, skills, and aspirations align with any potential opportunities at <strong>${companyName}</strong>. Please feel free to contact me at avneets2103@gmail.com.</p>
+    <p>I have also attatched my resume along side!</p>
+
+    <p>Sincerely,</p>
+
+    <p><strong>Avneet Singh Bedi</strong></p>
+</body>
+</html>
+`
+
+
 export const MLResumePath = "./resumes/My_Resume_v3_ML.pdf"
 export const DevResumePath = "./resumes/My_Resume_v3_Developer.pdf"
 
 export const MLHeadline = "ML applicant with work in XAI, GANs and DL";
 export const DevHeadline = "Full Stack Developer versed in Industry Leading Technologies";
+export const queryHeadline = "Dynamic software and ML engineer ready to join in."

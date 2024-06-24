@@ -2,7 +2,7 @@ import { asyncHandler } from "./asyncHandler.js";
 import ApiError from "./ApiError.js";
 import ApiResponse from "./ApiResponse.js";
 import { sendingMail } from "./sendMail.js";
-import { DevCoverLetter, DevHeadline, DevResumePath, MLCoverLetter, MLHeadline, MLResumePath } from "./constants.js";
+import { DevCoverLetter, DevHeadline, DevResumePath, MLCoverLetter, MLHeadline, MLResumePath, queryHeadline, queryLetter } from "./constants.js";
 
 const MLSendMail = asyncHandler(async (req, res) => {
   try {
@@ -29,8 +29,7 @@ const MLSendMail = asyncHandler(async (req, res) => {
         specificPosition,
         foundWhere,
         aboutCompany
-      ),
-      MLResumePath
+      )
     );
     res.status(200).json(new ApiResponse(200,{mail: MLCoverLetter(
         date,
@@ -71,8 +70,7 @@ const DevSendMail = asyncHandler(async (req, res) => {
           specificPosition,
           foundWhere,
           aboutCompany
-        ),
-        DevResumePath
+        )
       );
       res.status(200).json(new ApiResponse(200,
         {mail: DevCoverLetter(
@@ -90,4 +88,41 @@ const DevSendMail = asyncHandler(async (req, res) => {
     }
 });
 
-export { MLSendMail, DevSendMail };
+const querySendMail = asyncHandler(async (req, res) => {
+  try {
+    const {
+      recEmail,
+      date,
+      EName,
+      companyName,
+      companyAddress,
+      aboutCompany,
+    } = req.body;
+
+    sendingMail(
+      recEmail,
+      queryHeadline,
+      "",
+      queryLetter(
+        date,
+        EName,
+        companyName,
+        companyAddress,
+        aboutCompany
+      )
+    );
+    res.status(200).json(new ApiResponse(200,
+      {mail: queryLetter(
+          date,
+          EName,
+          companyName,
+          companyAddress,
+          aboutCompany
+        )}
+       ,"Mail sent successfully"));
+  } catch (error) {
+    throw new ApiError(500, error.message);
+  }
+});
+
+export { MLSendMail, DevSendMail, querySendMail };
